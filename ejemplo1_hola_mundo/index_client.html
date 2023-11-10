@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumir API con JavaScript</title>
+</head>
+<body>
+
+  <h1>Saludo API</h1>
+
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+  </div>
+
+  <button onclick="enviarNombre()">Enviar</button>
+
+  <div id="respuesta"></div>
+
+  <script>
+    function enviarNombre() 
+    {
+      const nombre = document.getElementById('nombre').value;
+
+      console.log(nombre)
+      console.log(JSON.stringify({ 'nombre': nombre }))
+
+      fetch('http://localhost:3000/api/hola-mundo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'nombre': nombre }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('respuesta').innerText = data.saludo;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('respuesta').innerText = 'Error al procesar la solicitud.';
+      });
+    }
+  </script>
+
+</body>
+</html>

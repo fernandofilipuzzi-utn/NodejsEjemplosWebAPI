@@ -1,0 +1,14 @@
+
+#al bajar el repo, instalar las dependencias por primera vez, se creará una carpeta node_modules
+npm install express swagger-jsdoc swagger-ui-express
+npm install cors
+
+#para correr, desde una terminal correr
+ node app_server.js
+
+#luego con chrome abrir index_client.html
+
+$para ver la documentación de la api 
+http://localhost:3000/api-docs
+
+
