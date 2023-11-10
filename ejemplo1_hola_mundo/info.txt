@@ -4,7 +4,7 @@ npm install express swagger-jsdoc swagger-ui-express
 npm install cors
 
 #para correr, desde una terminal correr
- node app_server.js
+node app_server.js
 
 #luego con chrome abrir index_client.html
 
